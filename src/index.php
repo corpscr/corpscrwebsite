@@ -16,7 +16,6 @@ if (!isset($_POST['submit'])) {
 	die("get nay-nayed");
 }
 
-$_POST['uin'], $_POST['fname'], $_POST['lname'], $_POST['outfit'], $_POST['gradyear'])
 $uin_key = $_POST['uin'] . "_0";
 $conn->query("INSERT INTO users(uin_key,uin,firstname,lastname,outfit,gradyear) VALUES(" . $uin_key . "," . $_POST['uin'] . "," . $_POST['fname'] . "," . $_POST['lname'] . "," . $_POST['outfit'] . "," . $_POST['gradyear'] . ")");
 
