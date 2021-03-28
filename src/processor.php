@@ -27,8 +27,6 @@ $qstring = "INSERT INTO users(uin_key,uin,firstname,lastname,outfit,gradyear) VA
 echo $qstring;
 $conn->query($qstring);
 
-echo $conn;
-
 $result = $conn->query("SELECT * FROM users");
 while ( $row = $result->fetch_assoc() ) {
     print_r($row);
