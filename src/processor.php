@@ -23,7 +23,9 @@ echo $_POST['lname'];
 echo $_POST['outfit'];
 echo $_POST['gradyear'];
 
-$conn->query("INSERT INTO users(uin_key,uin,firstname,lastname,outfit,gradyear) VALUES(" . $uin_key . "," . $_POST['uin'] . "," . $_POST['fname'] . "," . $_POST['lname'] . "," . $_POST['outfit'] . "," . $_POST['gradyear'] . ")");
+$qstring = "INSERT INTO users(uin_key,uin,firstname,lastname,outfit,gradyear) VALUES(" . $uin_key . "," . $_POST['uin'] . "," . $_POST['fname'] . "," . $_POST['lname'] . "," . $_POST['outfit'] . "," . $_POST['gradyear'] . ")";
+echo $qstring;
+$conn->query($qstring);
 
 echo $conn;
 
