@@ -2,7 +2,7 @@
 
 function connectToSQL() {
     // Create connection
-    $conn = new mysqli("localhost", "root", "asdf1234", "corpscrdemo");
+    $conn = new mysqli("localhost", "root", "asdf1234", "corpscr");
     // Check connection
     if ($conn->connect_error)
     {

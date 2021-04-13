@@ -9,9 +9,10 @@
 <body>
 <?php
     include "connectSQL.php";
-    echo "outside function";
+    
     function getEventsTable() {
         $resultArr = [];
+        echo "inside function";
         if (isset($_POST)) {
             $conn = connectToSQL();
 
@@ -33,7 +34,7 @@
 
             $conn->close();
         }
-        echo "made it here";
+        
         return json_encode($resultArr);
     }
 
