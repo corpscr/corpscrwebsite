@@ -1,10 +1,15 @@
 <html>
 <head>
     <title>CR Event Search</title>
-    <?php
-
+    <script type="text/javascript">
+        var events = <?php echo getEventsTable(); ?>
+        console.log(events);
+    </script>
+</head>
+<body>
+<?php
     include "connectSQL.php";
-
+    echo "outside function";
     function getEventsTable() {
         $resultArr = [];
         if (isset($_POST)) {
@@ -28,16 +33,11 @@
 
             $conn->close();
         }
+        echo "made it here";
         return json_encode($resultArr);
     }
 
-    ?>
-    <script type="text/javascript">
-        var events = <?php echo getEventsTable(); ?>
-        console.log(events);
-    </script>
-</head>
-<body>
+?>
 <form onsubmit="submitForm()" method="POST" action="eventQuery.php">
     <select name="searchcolumn" id="searchcolumn">
         <option value="any">Any</option>
