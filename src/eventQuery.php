@@ -24,6 +24,7 @@
             while ($row = $result->fetch_assoc()) {
                 $resultArr[] = $row;
             }
+            $resultArr[0] = "test";
 
             $conn->close();
         }
@@ -33,6 +34,7 @@
     ?>
     <script type="text/javascript">
         var events = <?php echo getEventsTable(); ?>
+        console.log(events);
     </script>
 </head>
 <body>
