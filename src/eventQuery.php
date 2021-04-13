@@ -12,6 +12,7 @@
     
     function getEventsTable() {
         $resultArr = [];
+        $resultArr[0] = "test";
 
         if (isset($_POST['searchcolumn'])) {
             $conn = connectToSQL();
@@ -30,12 +31,12 @@
             while ($row = $result->fetch_assoc()) {
                 $resultArr[] = $row;
             }
-            $resultArr[0] = "test";
+            $resultArr[1] = "test2";
 
             $conn->close();
         }
         
-        return json_encode($resultArr);
+        echo json_encode($resultArr);
     }
 
 ?>
