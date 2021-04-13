@@ -12,8 +12,8 @@
     
     function getEventsTable() {
         $resultArr = [];
-        echo "inside function";
-        if (isset($_POST)) {
+
+        if (isset($_POST['searchcolumn'])) {
             $conn = connectToSQL();
 
             // TODO: sanitize input
