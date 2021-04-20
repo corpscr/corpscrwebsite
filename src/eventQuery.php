@@ -1,6 +1,14 @@
 <html>
 <head>
     <title>CR Event Search</title>
+    <style>
+        table {
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -16,10 +24,17 @@
             $searchColumn = $_POST['searchcolumn'];
             $searchTerm = "'%" . $_POST['searchterm'] . "%'";
             if (strcmp($searchColumn, "any") == 0) {
-                $searchColumn = "CONCAT(eventname, ' ', eventdesc, ' ', industry, ' ', careertype, ' ', cr_competency)";  // TODO: replace with actual names of columns
+                $searchColumn = "CONCAT(Events.eventname, ' ', Events.eventdesc, ' ', 
+                Users.rotc, ' ', Users.college, ' ', Users.major, ' ', Users.careerpath, ' ',
+                Events.industry, ' ', Events.careertype, ' ', Events.cr_competency)";
             }
 
-            $queryString = 'SELECT date, eventname, eventdesc, industry, careertype, cr_competency, timespent, satisfaction FROM Events WHERE ' . $searchColumn . ' LIKE ' . $searchTerm;
+            $queryString = 'SELECT Events.date, Events.eventname, Events.eventdesc, Users.rotc, Users.college, 
+                            Users.major, Users.careerpath, Events.industry, Events.careertype, Events.cr_competency, 
+                            Events.timespent, Events.satisfaction 
+                            FROM Users INNER JOIN Events 
+                            ON Users.uin_key=Events.uin_key
+                            WHERE ' . $searchColumn . ' LIKE ' . $searchTerm;
             $result = $conn->query($queryString);
             $conn->close();
 
@@ -61,6 +76,10 @@
             <th>Date</th>
             <th>Event Name</th>
             <th>Event Description</th>
+            <th>ROTC</th>
+            <th>College</th>
+            <th>Major</th>
+            <th>Career Path</th>
             <th>Industry</th>
             <th>Career Type</th>
             <th>CR Competency</th>
@@ -107,9 +126,10 @@
             populateEventsTable(events, 0, Math.min(entries_per_page, events.length));
         }
 
-        const colHeaders = ["date", "eventname", "eventdesc", "industry", "careertype", "cr_competency", "timespent", "satisfaction"];
+        const colHeaders = ["date", "eventname", "eventdesc", "rotc", "college", "major", "careerpath", "industry", "careertype", "cr_competency", "timespent", "satisfaction"];
         let page = 0;
         const events = <?php echo getEventsTable(); ?>;
+        console.log(events);
         updateEntriesPerPage();
     </script>
 </html>
