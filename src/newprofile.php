@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<title>Create New Profile</title>
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
 <body>
-
+<?php include "navbar.php" ?>
 <h1>Create Account</h1>
-<form onsubmit="submitForm()" method="POST" action="createnewprofile.php">
+<form onsubmit="submitForm()" method="POST" action="registration_status.php">
+	<label for="netid">Net ID: </label>
+	<input type="text" step="1" id="netid" name="netid" size="20" maxlength="15"><br>
 	<label for="fname">First Name: </label>
 	<input type="text" id="fname" name="fname" size="20" maxlength="50"><br>
 	<label for="lname">Last Name: </label>
 	<input type="text" id="lname" name="lname" size="20" maxlength="50"><br>
 	<label for="email">Email: </label>
 	<input type="text" id="email" name="email" size="20" maxlength="70"><br>
-	<label for="uin">UIN: </label>
-	<input type="number" step="1" id="uin" name="uin" size="20" maxlength="15"><br>
 	<label for="classyear">Class Year: </label>
 	<input type="number" step="1" id="classyear" name="classyear" size="20" maxlength="4"><br>
-	<label for="career">Career Path: </label>
-	<input type="text" id="career" name="career" size="20" maxlength="50"><br>
+	<label for="outfit">Outfit: </label>
+	<select id="outfit" name="outfit">
+		<option value="Corps Staff" selected>Corps Staff</option>
+		<option value="First Wing Staff">First Wing Staff</option>
+		<option value="SQ-3">SQ-3</option>
+		<option value="SQ-4">SQ-4</option>
+		<option value="SQ-8">SQ-8</option>
+		<option value="SQ-11">SQ-11</option>
+		<option value="SQ-17">SQ-17</option>
+	</select><br>
+	<label for="careerpath">Career Path: </label>
+	<input type="text" id="careerpath" name="careerpath" size="20" maxlength="50"><br>
 	
 	<label for="major">Major: </label>
 	<select id="major" name="major">
@@ -196,7 +210,7 @@
 		<option value="dc">Drill and Ceremony</option>
 	</select><br>
 	
-	<input type="submit" value="Submit">
+	<input type="submit" value="Register">
 	
 </form>
 

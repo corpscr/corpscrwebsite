@@ -8,5 +8,6 @@
 <body>
     <?php include "navbar.php" ?>
     <h1>CR Homepage</h1>
+    <p>CR announcements and news go here</p>
 </body>
 </html>

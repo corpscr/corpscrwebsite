@@ -1,7 +1,11 @@
 <!DOCTYPE HTML>
 <html>
+<head>
+	<title>Submit New Event</title>
+    <link rel="stylesheet" href="css/navbar.css">
+</head>
 <body>
-
+<?php include "navbar.php" ?>
 <h1>Log Event</h1>
 
 <form onsubmit="submitForm()" method="POST" action="createnewprofile.php">
